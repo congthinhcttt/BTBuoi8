@@ -30,7 +30,10 @@
             this.labelAge = new System.Windows.Forms.Label();
             this.labelMajor = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudents)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewStudents
@@ -45,7 +48,7 @@
             // 
             // textBoxFullName
             // 
-            this.textBoxFullName.Location = new System.Drawing.Point(158, 108);
+            this.textBoxFullName.Location = new System.Drawing.Point(127, 56);
             this.textBoxFullName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxFullName.Name = "textBoxFullName";
             this.textBoxFullName.Size = new System.Drawing.Size(298, 26);
@@ -53,7 +56,7 @@
             // 
             // textBoxAge
             // 
-            this.textBoxAge.Location = new System.Drawing.Point(158, 174);
+            this.textBoxAge.Location = new System.Drawing.Point(127, 117);
             this.textBoxAge.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(298, 26);
@@ -69,7 +72,7 @@
             "Kỹ thuật phần mềm",
             "Quản trị kinh doanh",
             "Công nghệ sinh học"});
-            this.comboBoxMajor.Location = new System.Drawing.Point(158, 238);
+            this.comboBoxMajor.Location = new System.Drawing.Point(127, 170);
             this.comboBoxMajor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBoxMajor.Name = "comboBoxMajor";
             this.comboBoxMajor.Size = new System.Drawing.Size(298, 28);
@@ -77,7 +80,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(47, 322);
+            this.buttonAdd.Location = new System.Drawing.Point(0, 230);
             this.buttonAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(112, 35);
@@ -88,7 +91,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(192, 322);
+            this.buttonDelete.Location = new System.Drawing.Point(162, 230);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(112, 35);
@@ -99,7 +102,7 @@
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(344, 322);
+            this.buttonUpdate.Location = new System.Drawing.Point(313, 230);
             this.buttonUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(112, 35);
@@ -110,7 +113,7 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(96, 416);
+            this.buttonNext.Location = new System.Drawing.Point(0, 295);
             this.buttonNext.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(112, 35);
@@ -121,7 +124,7 @@
             // 
             // buttonPrevious
             // 
-            this.buttonPrevious.Location = new System.Drawing.Point(299, 416);
+            this.buttonPrevious.Location = new System.Drawing.Point(162, 295);
             this.buttonPrevious.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonPrevious.Name = "buttonPrevious";
             this.buttonPrevious.Size = new System.Drawing.Size(112, 35);
@@ -133,7 +136,7 @@
             // labelFullName
             // 
             this.labelFullName.AutoSize = true;
-            this.labelFullName.Location = new System.Drawing.Point(43, 114);
+            this.labelFullName.Location = new System.Drawing.Point(7, 59);
             this.labelFullName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFullName.Name = "labelFullName";
             this.labelFullName.Size = new System.Drawing.Size(77, 20);
@@ -143,7 +146,7 @@
             // labelAge
             // 
             this.labelAge.AutoSize = true;
-            this.labelAge.Location = new System.Drawing.Point(43, 180);
+            this.labelAge.Location = new System.Drawing.Point(7, 123);
             this.labelAge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelAge.Name = "labelAge";
             this.labelAge.Size = new System.Drawing.Size(39, 20);
@@ -153,7 +156,7 @@
             // labelMajor
             // 
             this.labelMajor.AutoSize = true;
-            this.labelMajor.Location = new System.Drawing.Point(43, 246);
+            this.labelMajor.Location = new System.Drawing.Point(7, 178);
             this.labelMajor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMajor.Name = "labelMajor";
             this.labelMajor.Size = new System.Drawing.Size(86, 20);
@@ -171,33 +174,59 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Quản Lý Danh Sách Sinh Viên";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.labelFullName);
+            this.groupBox1.Controls.Add(this.textBoxFullName);
+            this.groupBox1.Controls.Add(this.buttonPrevious);
+            this.groupBox1.Controls.Add(this.labelMajor);
+            this.groupBox1.Controls.Add(this.buttonNext);
+            this.groupBox1.Controls.Add(this.labelAge);
+            this.groupBox1.Controls.Add(this.buttonUpdate);
+            this.groupBox1.Controls.Add(this.textBoxAge);
+            this.groupBox1.Controls.Add(this.buttonDelete);
+            this.groupBox1.Controls.Add(this.comboBoxMajor);
+            this.groupBox1.Controls.Add(this.buttonAdd);
+            this.groupBox1.Location = new System.Drawing.Point(12, 108);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(453, 330);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(313, 295);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 35);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Thoát";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.labelMajor);
-            this.Controls.Add(this.labelAge);
-            this.Controls.Add(this.labelFullName);
-            this.Controls.Add(this.buttonPrevious);
-            this.Controls.Add(this.buttonNext);
-            this.Controls.Add(this.buttonUpdate);
-            this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.comboBoxMajor);
-            this.Controls.Add(this.textBoxAge);
-            this.Controls.Add(this.textBoxFullName);
             this.Controls.Add(this.dataGridViewStudents);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Quản lý sinh viên";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudents)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

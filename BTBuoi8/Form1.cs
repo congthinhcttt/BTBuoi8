@@ -55,17 +55,29 @@ namespace BTBuoi8
         }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            using (var context = new SchoolContext())
+            if (!string.IsNullOrEmpty(textBoxFullName.Text) &&
+        !string.IsNullOrEmpty(textBoxAge.Text) &&
+        comboBoxMajor.SelectedItem != null)
             {
-                var student = new Student
+                using (var context = new SchoolContext())
                 {
-                    FullName = textBoxFullName.Text,
-                    Age = int.Parse(textBoxAge.Text),
-                    Major = comboBoxMajor.SelectedItem.ToString()
-                };
-                context.Students.Add(student);
-                context.SaveChanges();
-                LoadData();
+                    var student = new Student
+                    {
+                        FullName = textBoxFullName.Text,
+                        Age = int.Parse(textBoxAge.Text),
+                        Major = comboBoxMajor.SelectedItem.ToString()
+                    };
+                    context.Students.Add(student);
+                    context.SaveChanges();
+                    LoadData();
+
+                    // Hiển thị thông báo thành công
+                    MessageBox.Show("Thêm sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin sinh viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -79,11 +91,23 @@ namespace BTBuoi8
                     var student = context.Students.Find(studentId);
                     if (student != null)
                     {
-                        context.Students.Remove(student);
-                        context.SaveChanges();
-                        LoadData();
+                        // Xác nhận trước khi xóa
+                        DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa sinh viên này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            context.Students.Remove(student);
+                            context.SaveChanges();
+                            LoadData();
+
+                            // Hiển thị thông báo thành công
+                            MessageBox.Show("Xóa sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -102,8 +126,15 @@ namespace BTBuoi8
                         student.Major = comboBoxMajor.SelectedItem.ToString();
                         context.SaveChanges();
                         LoadData();
+
+                        // Hiển thị thông báo thành công
+                        MessageBox.Show("Cập nhật thông tin sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -130,6 +161,17 @@ namespace BTBuoi8
                     currentIndex = studentsList.Count - 1; // Quay về cuối danh sách nếu vượt quá đầu
                 }
                 DisplayCurrentStudent();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Đóng ứng dụng
+                this.Close();
             }
         }
     }
